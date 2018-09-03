@@ -1,0 +1,18 @@
+{
+  "pages":[
+   
+    "pages/index/index",
+    "pages/details/details",
+    "pages/book/book",
+    "pages/readbook/readbook"
+   
+   
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "云book",
+    "navigationBarTextStyle":"black"
+  }
+}

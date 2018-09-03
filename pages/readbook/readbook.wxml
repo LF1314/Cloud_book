@@ -1,0 +1,11 @@
+<!--pages/readbook/readbook.wxml-->
+<view class='wraper'>
+<view class='title'>
+
+<text>{{ariticlecontent.title}}</text>
+
+</view>
+<text class='textarea'>
+ {{ariticlecontent.article.content}}
+</text>
+</view>

@@ -1,0 +1,14 @@
+/* pages/readbook/readbook.wxss */
+.wraper{
+margin-top: 10rpx;
+padding:0  2%
+}
+.title{
+  text-align: center
+   
+}
+.textarea{
+  font-size: 22rps;
+  line-height: 1.5;
+  text-indent: 2;
+}
