@@ -1,14 +1,14 @@
 {
   "pages":[
-    
+    "pages/test/test",
     "pages/index/index",
     "pages/details/details",
     "pages/dypebook/typebook",
     "pages/book/book",
     "pages/readbook/readbook",
      "pages/person/person",
-      "pages/login/login",
-      "pages/test/test"
+      "pages/login/login"
+     
    
    
     

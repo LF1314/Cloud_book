@@ -1,112 +1,51 @@
-// pages/test/test.js
+
+
 Page({
-  
-  /**
-   * 页面的初始数据
-   */
   data: {
-    viewopacity:0,
-    ishow:false,
-    animation: {}
-  
+    animationData: {}
   },
-   change(){
-   
-     if(this.data.ishow){
-      
-       let _this = this;
-       function g() {
-         if (_this.data.viewopacity > 0) {
-           _this.setData({
-             viewopacity: _this.data.viewopacity - 0.01
-           })
-           setTimeout(g, 30);
-         } else {
-           _this.setData({
-             viewopacity: 0
-           })
-           _this.setData({
-             ishow: !_this.data.ishow
-           })
-         }
-       }
-       g();
-
-     }
-     else{
-       this.setData({
-         ishow: !this.data.ishow
-       })
-       let _this=this;
-     function f(){
-       if (_this.data.viewopacity<1){
-         _this.setData({
-           viewopacity:_this.data.viewopacity+0.01
-         })
-         setTimeout(f, 30);
-       }else{
-         _this.setData({
-           viewopacity:1
-         })
-       } 
-     }
-     f();
-     }
- 
-   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-  
-  },
+    var animation = wx.createAnimation({
+      duration: 3000,
+      timingFunction: 'ease',
+    }),
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+    this.animation = animation
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+    animation.translateX(500).step()
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    this.setData({
+      animationData: animation.export()
+    })
   }
 })
+
+  //   setTimeout(function () {
+  //     animation.translate(30).step()
+  //     this.setData({
+  //       animationData: animation.export()
+  //     })
+  //   }.bind(this), 1000)
+  // },
+  // rotateAndScale: function () {
+  //   // 旋转同时放大
+  //   this.animation.rotate(45).scale(2, 2).step()
+  //   this.setData({
+  //     animationData: this.animation.export()
+  //   })
+  // },
+  // rotateThenScale: function () {
+  //   // 先旋转后放大
+  //   this.animation.rotate(45).step()
+  //   this.animation.scale(2, 2).step()
+  //   this.setData({
+  //     animationData: this.animation.export()
+  //   })
+  // },
+  // rotateAndScaleThenTranslate: function () {
+  //   // 先旋转同时放大，然后平移
+  //   this.animation.rotate(45).scale(2, 2).step()
+  //   this.animation.translate(100, 100).step({ duration: 1000 })
+  //   this.setData({
+  //     animationData: this.animation.export()
+  //   })

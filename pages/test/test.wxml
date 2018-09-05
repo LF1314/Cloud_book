@@ -1,5 +1,8 @@
 <!--pages/test/test.wxml-->
-<view class='nav' wx:if="{{ishow}}" animation="{{animation}}" style='opacity:{{viewopacity}}'></view>
-<view class='mask' wx:if="{{ishow}}" bindtap='change' style='opacity:{{viewopacity}}'></view>
+<!-- <view class='nav'  animation="{{animation}}"
+ ></view>
 
-<button class='btn' bindtap='change'>显示隐藏导航栏</button>
+<view class='mask' wx:if="{{ishow}}" bindtap='change' ></view>
+
+<button class='btn' bindtap='change'>显示隐藏导航栏</button> -->
+<view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>

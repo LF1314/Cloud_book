@@ -1,15 +1,4 @@
-/* pages/readbook/readbook.wxss */
-/**基础风格样式**/
-@import '/towxml/style/main.wxss';
 
-
-/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
-
-/**主题配色（浅色样式）**/
-@import '/towxml/style/theme/light.wxss';
-
-/**主题配色（深色样式）**/
-@import '/towxml/style/theme/dark.wxss';
 @font-face {
   font-family: 'iconfont';  /* project id 821831 */
   src: url('//at.alicdn.com/t/font_821831_ujw4vwx3wy.eot');
@@ -41,7 +30,7 @@
 }
 .wraper{
 margin-top: 10rpx;
-padding:0  2%
+padding:0  3%
 }
 .title{
   text-align: center  
@@ -95,6 +84,14 @@ padding:0  2%
   bottom: 0;
   z-index: 999;
   background-color: #fff;
+  opacity: 0;   
+ display: none;
+ /* transform: translateY(-100%); */
+  transition: opacity 0.4s linear;
+}
+.doing{
+
+ opacity: 1;
 }
 .nav-daohang view{
   height: 80rpx;

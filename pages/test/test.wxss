@@ -8,6 +8,7 @@
   bottom: 0;
   z-index: 4444;
   background-color: #333;
+ transform: translateX(-100%)
   
 }
 .btn{

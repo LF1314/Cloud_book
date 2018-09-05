@@ -15,6 +15,8 @@ Page({
     title:"",
     ishow:false,
     viewopacity: 0,
+    font:40,
+    index:0
 
 
   },
@@ -35,10 +37,11 @@ Page({
      })
      fetch.get(`/article/${this.data.articleid}`).then(res=>{
        console.log(res.data.data);
-       let data = app.towxml.toJson(res.data.data.article.content, 'markdown');
+      //  let data = app.towxml.toJson(res.data.data.article.content, 'markdown');
   
        this.setData({
-         article:data,
+         article: res.data.data.article.content,
+         index: res.data.data.article.index,
          title:res.data.data.title,
          isloading:false,
        })
@@ -60,59 +63,74 @@ Page({
        })
      })
    },
-  // 导航栏动画
-  change() {
-    if (this.data.ishow) {
-      let _this = this;
-      function g() {
-        if (_this.data.viewopacity > 0) {
-          _this.setData({
-            viewopacity: _this.data.viewopacity - 0.05
-          })
-          setTimeout(g, 10);
-        } else {
-          _this.setData({
-            viewopacity: 0
-          })
-          _this.setData({
-            ishow: !_this.data.ishow
-          })
-        }
-      }
-      g();
-
-    }
-    else {
+   //切换文章
+   addartilce(){
+     if(this.data.booktitle[this.data.index +1]){
+       this.setData({
+         index:this.data.index+1,
+         articleid:this.data.booktitle[this.data.index +1]._id
+        
+       })
+       this.getarticledata();
+     }else{
+       wx.showToast({
+         title: '最后一章了',
+       })
+     }
+   },
+  delarticle(){
+    if (this.data.booktitle[this.data.index - 1]) {
       this.setData({
-        ishow: !this.data.ishow
+        index: this.data.index - 1,
+        articleid: this.data.booktitle[this.data.index - 1]._id
+
       })
-      let _this = this;
-      function f() {
-        if (_this.data.viewopacity < 1) {
-          _this.setData({
-            viewopacity: _this.data.viewopacity + 0.05
-          })
-          setTimeout(f, 10);
-        } else {
-          _this.setData({
-            viewopacity: 1
-          })
-        }
-      }
-      f();
+      this.getarticledata();
+    } else {
+      wx.showToast({
+        title: '第一章',
+      })
     }
+  },
+  // 导航栏动画
+  changes(){
+    this.setData({
+      ishow:!this.data.ishow
+    })
 
   },
 
+  //放大缩小字体
+   addfont(){
+     console.log("....")
+    if(this.data.font<80){
+      this.setData({
+        font: this.data.font + 2
+      })}else{
+        wx.showToast({
+          title: '小伙子还放大',
+        })
+      }
+   },
+   delfont(){
+    if(this.data.font>24){
+      this.setData({
+        font: this.data.font -2
+      })
+    }else{
+      wx.showToast({
+        title: '最小了已经',
+      })
+    }
+   },
+
   changetitle(e){
+    this.changes();
     let id = e.currentTarget.id
     this.setData({
       articleid:id
     })
     this.getarticledata();
-   this.setData({
-     ishow:!this.data.ishow
-   })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
