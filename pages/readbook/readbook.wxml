@@ -1,11 +1,40 @@
 <!--pages/readbook/readbook.wxml-->
+<view class='content'>
+
+<image wx:if="{{isloading}}" class='isloading' src='../../images/isloading.svg'></image>
+<view wx:else>
+<import src="/towxml/entry.wxml"/>
+
 <view class='wraper'>
+
 <view class='title'>
 
-<text>{{ariticlecontent.title}}</text>
+<text>{{title}}</text>
+
+</view >
+<view class='text' style='fontSize:33rpx;'>
+<template is="entry" data="{{...article}}"/>
+</view>
+<view class='mask' wx:if="{{ishow}}" bindtap='change' style='opacity:{{viewopacity}}'></view>
+<view class='nav-daohang' wx:if="{{ishow}}" style='opacity:{{viewopacity}}'>
+<scroll-view  scroll-y  >
+
+<view wx:for="{{booktitle}}" wx:key ="{{index}}" bindtap='changetitle' id='{{item._id}}'>
+<text>{{item.title}}</text>
+</view>
+
+</scroll-view>
+</view>
 
 </view>
-<text class='textarea'>
- {{ariticlecontent.article.content}}
-</text>
+<!-- 导航栏 -->
+<view class='bottomnav'>
+<view> <icon class='iconfont icon-zuoyou1'></icon></view>
+<view> <icon class='iconfont icon-cechucaidan' bindtap='change'></icon></view>
+<view> <icon class='iconfont icon-zitijiada'></icon></view>
+<view> <icon class='iconfont icon-zitijianxiao'></icon></view>
+<view> <icon class='iconfont icon-zuoyou'></icon></view>
 </view>
+</view>
+</view>
+

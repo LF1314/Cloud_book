@@ -1,5 +1,8 @@
 /**index.wxss**/
 /* //设置轮播图样式 start*/
+.container{
+  height: 100%;
+}
 .swiperwraper{
   padding: 0 auto;
   width: 90%;

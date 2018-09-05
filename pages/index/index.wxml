@@ -1,3 +1,9 @@
+
+<view class='container'>
+
+<image wx:if="{{isloading}}" class='isloading' src='../../images/isloading.svg'></image>
+
+<view wx:else>
 <view class='lubocontainer'>
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -19,11 +25,12 @@
 
 <!-- 书籍类型集合名 start -->
 <view class='book-type-name' >
-<view><text>{{item.title}}</text><text>更多...</text></view>
+<view><text>{{item.title}}</text><text bindtap='jumpmore' id='{{item._id}}'>更多...</text></view>
 </view>
 <!-- 书籍类型集合名 stop -->
 <!-- 书籍信息start -->
-<view class='book-detail' wx:for="{{item.books}}" wx:key="{{index}}">
+<navigator wx:for="{{item.books}}" wx:key="{{index}}" url='/pages/details/details?id={{item._id}}'>
+<view class='book-detail' >
 <!-- 书籍信息left start -->
 <view class='book-dl'>
 <image src="{{item.img}}"></image>
@@ -44,6 +51,7 @@
 </view>
 <!-- 书籍信息right stop-->
 </view>
+</navigator>
 <!-- 书籍信息stop -->
 
 </view>
@@ -51,6 +59,9 @@
 </view>
 <!-- book-list-view stop -->
 </view>
+</view>
+</view>
+
 
 
 

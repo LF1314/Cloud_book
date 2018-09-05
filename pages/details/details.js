@@ -24,9 +24,9 @@ Page({
 
   getDate:function(){
     fetch.get(`/book/${this.data.bookid}`).then(res=>{
-      console.log(res.data.data)
+      console.log(res.data)
       this.setData({
-        bookdata:res.data.data
+        bookdata:res.data
       })
     })
   },

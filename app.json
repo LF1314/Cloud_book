@@ -1,10 +1,14 @@
 {
   "pages":[
-   
+    
     "pages/index/index",
     "pages/details/details",
+    "pages/dypebook/typebook",
     "pages/book/book",
-    "pages/readbook/readbook"
+    "pages/readbook/readbook",
+     "pages/person/person",
+      "pages/login/login",
+      "pages/test/test"
    
    
     
@@ -14,5 +18,25 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "云book",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "登录"
+      },
+      {
+        "pagePath":"pages/person/person",
+        "text":"个人中心"
+      }
+    ],
+    "selectedColor":"blue",
+    "color":"#666",
+    "borderStyle":"white",
+    "backgroundColor":"white"
   }
 }

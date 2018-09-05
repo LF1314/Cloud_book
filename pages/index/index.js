@@ -7,6 +7,7 @@ const app = getApp()
 
 Page({
   data: {
+    isloading:true,
     imgUrls: [],
     books:[],
     indicatorDots: true,
@@ -32,11 +33,26 @@ Page({
       })
     })
   },
+  jumpmore:function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: `/pages/dypebook/typebook?id=${e.target.id}`,
+    })
+
+  },
   getbookData:function(){
+  
     fetch.get("/category/books").then(res=>{
       console.log(res.data.data)
+      
       this.setData({
+        isloading: false,
         books:res.data.data
+     
+      })
+    }).catch(err=>{
+      this.setData({
+        isloaing:false
       })
     })
   }

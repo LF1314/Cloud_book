@@ -2,6 +2,9 @@
 page{
 
 }
+.book-details-wraper{
+  padding-bottom: 50rpx;
+}
 .containder{
   padding: 2%;
 }
@@ -10,6 +13,9 @@ page{
  
 
 
+}
+.m-50{
+  margin-bottom: 100rpx
 }
 .book-dr{
   margin-left: 20rpx;
@@ -40,17 +46,18 @@ page{
 .button{
   display: flex;
   justify-content: space-between;
-  width: 70%;
-  padding: 0 15%;
+  width: 90%;
+  padding: 0 5%;
   margin-top: 30rpx;
   
 }
 .button button{
   padding: 0;
   margin: 0;
-  width: 25%;
-  font-size: 19rpx;
-  height: 55rpx;
+  width: 300rpx;
+  font-size: 25rpx;
+  height: 80rpx;
+  line-height: 80rpx;
 }
 .book-desc text:nth-of-type(1){
   font-size: 32rpx;
@@ -101,7 +108,14 @@ font-weight: 700;
   left: 0;
   bottom: 4rpx;
   right: 0;
-  padding:0 3%;
-  padding-top: 10rpx;
+  padding:10rpx 3%;
+
+  
   box-shadow: 0 0 5rpx 5rpx rgba(0, 0, 0,.3)
+}
+.readbook{
+  height: 45rpx;
+  line-height: 45rpx;
+  background-color: #dbbcbc;
+  font-size: 28rpx;
 }

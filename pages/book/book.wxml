@@ -1,7 +1,7 @@
 <!--pages/book/book.wxml-->
 <view class='book-mulu'>
 
-<navigator wx:for="{{bookmulu}}" wx:key="{{index}}" url='/pages/readbook/readbook?id={{item._id}}'>
+<navigator wx:for="{{bookmulu}}" wx:key="{{index}}" url='/pages/readbook/readbook?id={{item._id}}&book_id={{item.bookId}}'>
 <view class='text-warper'>
 <text>{{item.title}}</text>
 </view>
