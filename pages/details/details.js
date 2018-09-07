@@ -1,5 +1,6 @@
 // pages/details/details.js
 
+
 import {fetch} from "../until/utils.js"
 Page({
 
@@ -8,25 +9,49 @@ Page({
    */
   data: {
     bookid:"",
-    bookdata:{}
-  
+    bookdata:{},
+    iscollect:0
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+    console.log(options)
   this.setData({
     bookid:options.id
   })
   },
-
+  
+ collect(){
+      this.setData({
+        iscollect:false
+      }),
+      wx.showToast({
+        title: '收藏成功',
+        duration:1000,
+        mask:true,
+        
+        success:()=>{
+          this.setData({
+            iscollect: true
+          })
+          fetch.post("/collection", {bookId: this.data.bookid})
+        }
+        
+      })
+ },
   getDate:function(){
     fetch.get(`/book/${this.data.bookid}`).then(res=>{
       console.log(res.data)
+      if(res.data.isCollect){
+        this.setData({
+          iscollect:true
+        })
+      }
       this.setData({
-        bookdata:res.data
+        bookdata:res.data,
       })
     })
   },
@@ -76,8 +101,16 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+
+    if(res.from==="button"){
+     
+      return{
+        title: this.data.bookdata.data.title,
+        path: "/pages/details/details",
+        imageUrl: this.data.bookdata.data.img
+      }
+    }
   },
   readbook:function(){
     wx.navigateTo({

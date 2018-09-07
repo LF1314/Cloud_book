@@ -1,4 +1,4 @@
-// pages/login/login.js
+// pages/articletype/articletype.js
 import { fetch } from "../until/utils.js"
 Page({
 
@@ -6,32 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-   num:[],
-  readlist:[],
-   
+    arctiletype:[]
+  },
+  // 获取文章分类
+  getarticletype(){
+    fetch.get("/category").then(res=>{
+      console.log(res.data.data)
+      this.setData({
+        arctiletype:res.data.data
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-   
-  },
-  getreadlist(){
-
-    fetch.get("/readList").then(res=>{
-    console.log(res)
-      let nu = res.data.data.map(item=>{
-        console.log(item.title.index / item.title.total)
-        return(parseInt(item.title.index/item.title.total*100))
-      })
-    this.setData({
-       num:nu,
-      readlist:res.data.data
-    })
-     console.log(this.data.num)
-    })
+     this.getarticletype();
   },
 
   /**
@@ -45,7 +36,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getreadlist();
+  
   },
 
   /**
@@ -66,7 +57,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getreadlist();
+  
   },
 
   /**

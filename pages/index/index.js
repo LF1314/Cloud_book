@@ -1,5 +1,5 @@
 
-import {fetch} from "../until/utils.js"
+import {fetch , login} from "../until/utils.js"
 
 //index.js
 //获取应用实例
@@ -13,15 +13,49 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
-    duration: 300
+    duration: 300,
+    pn:2,
+    showmore:true
+  },
+  onPullDownRefresh: function () {
+      if(!this.data.showmore){
+        wx.stopPullDownRefresh()
+      }
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+   
+    fetch.get("/category/books",{pn:this.data.pn}).then(res=>{
+      console.log(res)
+      if(res.data.data.length <2){
+           console.log("...")
+            this.setData({
+              showmore:false
+            })
+      }else{
+        let newarr = [...this.data.books,...res.data.data]
+        this.setData({
+            books:newarr,
+            pn:this.data.pn+1
+        })
+
+      }
+    })
   },
   //事件处理函数
 
   onLoad: function () {
+    login();
     this.getData();
     this.getbookData();
 
     } ,
+    onReady:function(){
+
+    },
   getUserInfo: function(e) {
     
   },

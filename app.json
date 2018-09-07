@@ -1,40 +1,48 @@
 {
   "pages":[
-    "pages/test/test",
+    
     "pages/index/index",
     "pages/details/details",
     "pages/dypebook/typebook",
     "pages/book/book",
+    "pages/articletype/articletype",
     "pages/readbook/readbook",
      "pages/person/person",
-      "pages/login/login"
-     
-   
-   
-    
+      "pages/login/login",
+      "pages/collectionlist/collectionlist"
+ 
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "云book",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true,
+    "onReachBottomDistance":50
+    
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath":"images/shouye.png",
+        "selectedIconPath":"images/shouye_1.png"
       },
       {
         "pagePath": "pages/login/login",
-        "text": "登录"
+        "text": "阅读中心",
+        "iconPath": "images/yuedu.png",
+        "selectedIconPath": "images/yudu_1.png"
       },
       {
         "pagePath":"pages/person/person",
-        "text":"个人中心"
+        "text":"个人中心",
+        "iconPath": "images/person.png",
+        "selectedIconPath": "images/person_1.png"
       }
     ],
-    "selectedColor":"blue",
+    "selectedColor":"yellow",
     "color":"#666",
     "borderStyle":"white",
     "backgroundColor":"white"

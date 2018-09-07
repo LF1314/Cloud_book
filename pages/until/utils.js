@@ -1,16 +1,23 @@
 const baseURl = 'https://m.yaojunrong.com'
 
 const fetch = {
-  http(url, methods,data) {
+  http(url, method,data) {
     return new Promise((resolve, reject) => {
+      let header =  {
+        'Content-Type': 'application/json'
+        }
+      if (wx.getStorageSync('Token')){
+        header.Token = wx.getStorageSync('Token');
+      }
       wx.request({
         url: baseURl + url,
+        method,
         data,
-        methods: '',
-        header:{
-          'Content-Type': 'application/json'
-        },
+        header,
         success(res) {
+        if(res.header.Token){
+          wx.setStorageSync("Token", res.header.Token)
+        }
           resolve(res)
         },
         fail(err){
@@ -21,6 +28,24 @@ const fetch = {
   },
   get(url,data){
      return this.http(url,"GET",data);
-  }
+  },
+  post(url,data){
+    return this.http(url,"POST",data)
+  },
+  delete(url,data) { return this.http(url,"DELETE",data)}
 }
+const login = ()=>{
+  wx.login({
+    success:function(res){
+       fetch.post('/login',{
+         code:res.code,
+         appid: "wx6ce9d46464e18d07",
+         secret:"39e6659d65f6fbc7906db5c5bcfd420c"
+       }).then(res=>{
+        
+       })
+    }
+  })
+}
+exports.login = login;
 exports.fetch = fetch;

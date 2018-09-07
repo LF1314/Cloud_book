@@ -84,14 +84,12 @@ padding:0  3%
   bottom: 0;
   z-index: 999;
   background-color: #fff;
-  opacity: 0;   
- display: none;
- /* transform: translateY(-100%); */
-  transition: opacity 0.4s linear;
+ transform: translate3d(-100%,0,0);
+  transition: transform 0.3s linear;
 }
 .doing{
+transform:translate3d(0,0,0);
 
- opacity: 1;
 }
 .nav-daohang view{
   height: 80rpx;

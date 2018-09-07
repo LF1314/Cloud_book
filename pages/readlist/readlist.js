@@ -1,37 +1,18 @@
-// pages/login/login.js
-import { fetch } from "../until/utils.js"
+// pages/readlist/readlist.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   num:[],
-  readlist:[],
-   
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-   
-  },
-  getreadlist(){
-
-    fetch.get("/readList").then(res=>{
-    console.log(res)
-      let nu = res.data.data.map(item=>{
-        console.log(item.title.index / item.title.total)
-        return(parseInt(item.title.index/item.title.total*100))
-      })
-    this.setData({
-       num:nu,
-      readlist:res.data.data
-    })
-     console.log(this.data.num)
-    })
+  
   },
 
   /**
@@ -45,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getreadlist();
+  
   },
 
   /**
@@ -66,7 +47,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getreadlist();
+  
   },
 
   /**

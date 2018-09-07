@@ -20,8 +20,8 @@
 </view>
 <!-- 书籍信息 -->
  <view class='button'>
-<button>已收藏</button>
-<button>分享好友</button>
+<button bindtap='collect' disabled="{{iscollect}}"> {{iscollect ? "已收藏" : "收藏"}}</button>
+<button open-type="share">分享好友</button>
 </view>
 
 </view>

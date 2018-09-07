@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.4",
-	"appid": "touristappid",
-	"projectname": "yuedu",
+	"appid": "wx6ce9d46464e18d07",
+	"projectname": "clockbook",
 	"condition": {
 		"search": {
 			"current": -1,

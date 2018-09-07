@@ -31,7 +31,7 @@
 </view>
 <view class='mask' wx:if="{{ishow}}" bindtap='changes' ></view>
 
-<scroll-view scroll-y style='height:1200rpx;' class='nav-daohang {{ishow ? "doing" : "" }}' >
+<scroll-view scroll-y style='height:1600rpx;' class='nav-daohang {{ishow ? "doing" : "" }}' >
 
 <view wx:for="{{booktitle}}" wx:key ="{{index}}" bindtap='changetitle' id='{{item._id}}'>
 {{item.title}}
